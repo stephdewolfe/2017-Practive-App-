@@ -7,7 +7,7 @@
 
 <p>
   <strong>Vet:</strong>
-  <%= @dog.vet_id %>
+  <%= @dog.vet %>
 </p>
 
 <p>
@@ -22,12 +22,12 @@
 
 <p>
   <strong>Dob:</strong>
-  <%= @dog.DOB %>
+  <%= @dog.dob %>
 </p>
 
 <p>
-  <strong>Currently in daycare?:</strong>
-  <%= @dog.currently_in_daycare? %>
+  <strong>In daycare:</strong>
+  <%= @dog.in_daycare %>
 </p>
 
 <%= link_to 'Edit', edit_dog_path(@dog) %> |
