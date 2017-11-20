@@ -30,5 +30,12 @@
   <%= @dog.in_daycare %>
 </p>
 
+<p>
+  <strong>Owners: </strong>
+    <%= @dog.owners.each do |owner| %>
+    <li><%= owner.try(name) %></li>
+</p>
+  </strong>
+
 <%= link_to 'Edit', edit_dog_path(@dog) %> |
 <%= link_to 'Back', dogs_path %>
