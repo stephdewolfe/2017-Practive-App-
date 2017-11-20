@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171120162103) do
+ActiveRecord::Schema.define(version: 20171120164127) do
+
+  create_table "breeds", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custodies", force: :cascade do |t|
+    t.integer "dog_id"
+    t.integer "owner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dog_id"], name: "index_custodies_on_dog_id"
+    t.index ["owner_id"], name: "index_custodies_on_owner_id"
+  end
+
+  create_table "dogs", force: :cascade do |t|
+    t.string "name"
+    t.integer "vet_id_id"
+    t.integer "breed_id"
+    t.integer "weight"
+    t.date "DOB"
+    t.boolean "currently_in_daycare?"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["breed_id"], name: "index_dogs_on_breed_id"
+    t.index ["vet_id_id"], name: "index_dogs_on_vet_id_id"
+  end
 
   create_table "owners", force: :cascade do |t|
     t.string "first_name"
@@ -23,6 +51,15 @@ ActiveRecord::Schema.define(version: 20171120162103) do
     t.string "secondary_phone"
     t.string "emergency_name"
     t.string "emergency_phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "vets", force: :cascade do |t|
+    t.string "doctor"
+    t.string "clinic"
+    t.string "phone"
+    t.string "fax"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

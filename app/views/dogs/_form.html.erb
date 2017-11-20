@@ -1,0 +1,16 @@
+<%= simple_form_for(@dog) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.association :vet_id %>
+    <%= f.association :breed %>
+    <%= f.input :weight %>
+    <%= f.input :DOB %>
+    <%= f.input :currently_in_daycare? %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
